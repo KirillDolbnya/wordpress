@@ -1,5 +1,16 @@
 <?php
 
+if (! function_exists('promodise_setup')){
+    function promodise_setup(){
+        add_theme_support('custom-logo',[
+            'height' => 50,
+            'width' => 130,
+
+        ]);
+    }
+    add_action('after_setup_theme','promodise_setup');
+}
+
 // правильный способ подключить стили и скрипты
 add_action( 'wp_enqueue_scripts', 'my_style' );
 function my_style() {
