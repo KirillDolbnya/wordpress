@@ -8,6 +8,7 @@ if (! function_exists('promodise_setup')){
             'width' => 130,
 
         ]);
+        add_theme_support('post-thumbnails');
     }
     add_action('after_setup_theme','promodise_setup');
 }
