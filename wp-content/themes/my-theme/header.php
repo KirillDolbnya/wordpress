@@ -45,51 +45,18 @@
        </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-            <ul class="navbar-nav ">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#!" id="navbarWelcome" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Home <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
-                        <li><a class="dropdown-item" href="index.html">Home-1</a></li>
-                        <li><a class="dropdown-item" href="index-2.html">Home-2</a></li>
-                        <li><a class="dropdown-item" href="index-3.html">Onepage</a></li>
-
-                        <li class="dropdown dropdown-submenu dropright">
-                            <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdown0301">
-                                <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-submenu dropleft">
-                            <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                                <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="service.html">Service</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="pricing.html">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="contact.html">Contact</a>
-                </li>
-            </ul>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'header',
+                'container'       => false,
+                'menu_class'      => 'navbar-nav',
+                'menu_id'      => false,
+                'echo'            => true,
+                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth'           => 2,
+                'walker'          => new bootstrap_4_walker_nav_menu()
+            ]);
+            ?>
         </div>
     </div>
 </nav>
