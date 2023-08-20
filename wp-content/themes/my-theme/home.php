@@ -21,109 +21,40 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-post">
-                            <img src="images/blog/blog-1.jpg" alt="" class="w-100">
-                            <div class="mt-4 mb-3 d-flex">
-                                <div class="post-author mr-3">
-                                    <i class="fa fa-user"></i>
-                                    <span class="h6 text-uppercase">John mackel</span>
-                                </div>
+                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="blog-post">
+                                <?php
+                                //должно находится внутри цикла
+                                if( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'medium', array(
+                                        'class' => "w-100",
+                                    ) );
+                                }
+                                else {
+                                    echo '<img src="'.get_template_directory_uri().'/assets/images/blog/blog-1.jpg" class="w-100" />';
+                                }
+                                ?>
+                                <div class="mt-4 mb-3 d-flex">
+                                    <div class="post-author mr-3">
+                                        <i class="fa fa-user"></i>
+                                        <span class="h6 text-uppercase"><?php the_author(); ?></span>
+                                    </div>
 
-                                <div class="post-info">
-                                    <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
+                                    <div class="post-info">
+                                        <i class="fa fa-calendar-check"></i>
+                                        <span><?php the_time('j F Y') ?></span>
+                                    </div>
                                 </div>
+                                <a href="<?php echo get_the_permalink(); ?>" class="h4 "><?php the_title(); ?></a>
+                                <p class="mt-3"><?php the_excerpt(); ?></p>
+                                <a href="<?php echo get_the_permalink(); ?>" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
-                            <a href="blog-single.html" class="h4 ">Marketing tips to grow your site template</a>
-                            <p class="mt-3">Distinctio nulla hic repudiandae aliquid sint architecto dolore similique amet
-                                laboriosam suscipit in officia rerum, pariatuz.</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
-                    </div>
+                    <?php endwhile; else: ?>
+                        Записей нет.
+                    <?php endif; ?>
 
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-post">
-                            <img src="images/blog/blog-2.jpg" alt="" class="w-100">
-                            <div class="mt-4 mb-3 d-flex">
-                                <div class="post-author mr-3">
-                                    <i class="fa fa-user"></i>
-                                    <span class="h6 text-uppercase">John mackel</span>
-                                </div>
-
-                                <div class="post-info">
-                                    <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
-                                </div>
-                            </div>
-                            <a href="blog-single.html" class="h4 ">Build site tips to grow your site template</a>
-                            <p class="mt-3">Distinctio nulla hic repudiandae aliquid sint architecto dolore similique amet
-                                laboriosam suscipit in officia rerum, pariatuz.</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="blog-post">
-                            <img src="images/blog/blog-lg.jpg" alt="" class="w-100">
-                            <div class="mt-4 mb-3 d-flex">
-                                <div class="post-author mr-3">
-                                    <i class="fa fa-user"></i>
-                                    <span class="h6 text-uppercase">John mackel</span>
-                                </div>
-
-                                <div class="post-info">
-                                    <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
-                                </div>
-                            </div>
-                            <a href="blog-single.html" class="h4 ">Falling in lin in google strategy</a>
-                            <p class="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, tenetur
-                                debitis iste eos doloremque praesentium nulla numquam nostrum quas distinctio sapiente illum
-                                nam laudantium laboriosam nobis odit nesciunt error? Dolor.</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-post">
-                            <img src="images/blog/blog-3.jpg" alt="" class="w-100">
-                            <div class="mt-4 mb-3 d-flex">
-                                <div class="post-author mr-3">
-                                    <i class="fa fa-user"></i>
-                                    <span class="h6 text-uppercase">John mackel</span>
-                                </div>
-
-                                <div class="post-info">
-                                    <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
-                                </div>
-                            </div>
-                            <a href="blog-single.html" class="h4 ">Best tips to grow your site template</a>
-                            <p class="mt-3">Distinctio nulla hic repudiandae aliquid sint architecto dolore similique amet
-                                laboriosam suscipit in officia rerum, pariatuz.</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="blog-post">
-                            <img src="images/blog/blog-4.jpg" alt="" class="w-100">
-                            <div class="mt-4 mb-3 d-flex">
-                                <div class="post-author mr-3">
-                                    <i class="fa fa-user"></i>
-                                    <span class="h6 text-uppercase">John mackel</span>
-                                </div>
-
-                                <div class="post-info">
-                                    <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
-                                </div>
-                            </div>
-                            <a href="blog-single.html" class="h4 ">Top growing channel tips lets follow</a>
-                            <p class="mt-3">Distinctio nulla hic repudiandae aliquid sint architecto dolore similique amet
-                                laboriosam suscipit in officia rerum, pariatuz.</p>
-                            <a href="blog-single.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
                 </div>
 
             </div>
